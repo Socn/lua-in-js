@@ -7,7 +7,7 @@ interface Config {
     LUA_PATH?: string
     fileExists?: (path: string) => boolean
     loadFile?: (path: string) => string
-    stdin?: string
+    stdin?: () => string
     stdout?: (data: string) => void
     osExit?: (code: number) => void
 }

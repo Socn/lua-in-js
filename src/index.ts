@@ -59,7 +59,7 @@ function createEnv(
 } {
     const cfg: Config = {
         LUA_PATH: './?.lua',
-        stdin: '',
+        stdin: () => { return ''; },
         stdout: console.log,
         ...config
     }

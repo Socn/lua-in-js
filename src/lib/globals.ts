@@ -256,7 +256,7 @@ function setmetatable(table: LuaType, metatable: LuaType): Table {
         throw new LuaError('cannot change a protected metatable')
     }
 
-    TABLE.metatable = metatable === null || metatable === undefined ? null : coerceArgToTable(metatable, 'setmetatable', 2) 
+    TABLE.metatable = metatable === null || metatable === undefined ? null : coerceArgToTable(metatable, 'setmetatable', 2)
     return TABLE
 }
 
@@ -360,7 +360,7 @@ function createG(cfg: Config, execChunk: (_G: Table, chunk: string) => LuaType[]
         mode?: 'b' | 't' | 'bt',
         env?: Table
     ): [undefined, string] | (() => LuaType[]) {
-        const FILENAME = filename === undefined ? cfg.stdin : coerceArgToString(filename, 'loadfile', 1)
+        const FILENAME = filename === undefined ? cfg.stdin() : coerceArgToString(filename, 'loadfile', 1)
 
         if (!cfg.fileExists) {
             throw new LuaError('loadfile requires the config.fileExists function')
